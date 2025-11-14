@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "target": "es2019",
+    "declaration": true,
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "include": [
+    "*.ts"
+  ]
+}
