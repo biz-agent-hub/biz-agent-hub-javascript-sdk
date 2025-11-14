@@ -14,5 +14,9 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biz-agent-hub/biz-agent-hub-javascript-sdk.git"
   }
 }
