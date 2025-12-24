@@ -1,9 +1,10 @@
-interface BrowserTestingAgentQuery {
+interface SupportAgentQuery {
     message: string;
+    file: File | undefined;
     sessionId: string | undefined;
 }
 
-export class BrowserTestingAgent {
+export class SupportAgent {
     userId: string;
     apiKey: string;
 
@@ -12,8 +13,12 @@ export class BrowserTestingAgent {
         this.apiKey = apiKey;
     }
 
-    async query({ message, sessionId }: BrowserTestingAgentQuery): Promise<any> {
+    async query({ message, file, sessionId }: SupportAgentQuery): Promise<any> {
         const formData = new FormData();
+
+        if (file) {
+            formData.append('file', file);
+        }
 
         if (sessionId) {
             formData.append('session_id', sessionId);
@@ -26,7 +31,7 @@ export class BrowserTestingAgent {
             .from(`${this.userId}:${this.apiKey}`)
             .toString('base64');
 
-        return fetch('https://api.bizagenthub.ai/browser-testing-agent', {
+        return fetch('https://api.bizagenthub.ai/support-agent', {
             method: 'POST',
             headers: {
                 'Authorization': `Basic ${authToken}`

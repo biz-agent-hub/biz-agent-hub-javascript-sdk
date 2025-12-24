@@ -1,11 +1,11 @@
-import { SupportbotElite } from "./supportbot-elite.js";
+import { SupportAgent } from "./support-agent.js";
 import { ScrapAgent } from "./scrap-agent.js";
 import { AnalyticsAgent } from "./analytics-agent.js";
-import { BrowserTestingAgent } from "./browser-testing-agent.js";
+import { UITestingAgent } from "./ui-testing-agent.js";
 export declare class BizAgentHub {
-    supportbotElite: SupportbotElite;
+    supportAgent: SupportAgent;
     scrapAgent: ScrapAgent;
     analyticsAgent: AnalyticsAgent;
-    browserTestingAgent: BrowserTestingAgent;
+    uiTestingAgent: UITestingAgent;
     constructor(userId: string, apiKey: string);
 }

@@ -1,11 +1,11 @@
 # Biz Agent Hub – JavaScript SDK
 
-The **Biz Agent Hub JavaScript SDK** provides a simple way to integrate Biz Agent Hub agents (such as Supportbot Elite) into your Node.js or browser applications.
+The **Biz Agent Hub JavaScript SDK** provides a simple way to integrate Biz Agent Hub agents (such as Support Agent) into your Node.js or browser applications.
 
 With this SDK, you can:
 
 - Initialize a `BizAgentHub` client with your credentials
-- Interact with **Supportbot Elite** via a simple `query()` API
+- Interact with **Support Agent** via a simple `query()` API
 - Send messages and optional files (for example, images) to the bot
 - Use the SDK from both **TypeScript** and **JavaScript**
 
@@ -31,13 +31,13 @@ const apiKey = '<your_api_key>';
 const client = new BizAgentHub(userId, apiKey);
 
 async function run() { 
-  const response = await client.supportbotElite.query({ 
-    message: 'Hello Supportbot Elite!', 
+  const response = await client.supportAgent.query({ 
+    message: 'Hello Support Agent!', 
     file: undefined, // Optional: a File object (browser) or compatible type 
     sessionId: undefined // Optional: reuse a session ID for conversation continuity 
   });
 
-  console.log('Supportbot Elite response:', response); 
+  console.log('Support Agent response:', response); 
 }
 
 run().catch(console.error);
@@ -50,13 +50,13 @@ const apiKey = '<your_api_key>';
 const client = new BizAgentHub(userId, apiKey);
 
 (async () => {
-    const response = await client.supportbotElite.query({
-        message: 'Hello Supportbot Elite!',
+    const response = await client.supportAgent.query({
+        message: 'Hello Support Agent!',
         file: undefined,
         sessionId: undefined
     });
 
-    console.log('Supportbot Elite response:', response);
+    console.log('Support Agent response:', response);
 })();
 ```
 
@@ -75,20 +75,20 @@ Creates an instance of the Biz Agent Hub client.
 
 ### Properties
 
-* `supportbotElite: SupportbotElite`
+* `supportAgent: SupportAgent`
 
-    Interface for interacting with the Supportbot Elite agent.
+    Interface for interacting with the Support agent.
 
 ---
-`SupportbotElite`
+`SupportAgent`
 
-`query(options: SupportbotEliteQuery): Promise<any>`
+`query(options: SupportAgentQuery): Promise<any>`
 
-Send a message (and optional file) to Supportbot Elite.
+Send a message (and optional file) to Support Agent.
 
 ```typescript
-interface SupportbotEliteQuery { 
-  /** The user message or question for Supportbot Elite. */ 
+interface SupportAgentQuery { 
+  /** The user message or question for Support Agent. */ 
   message: string;
 
   /**
@@ -107,7 +107,7 @@ interface SupportbotEliteQuery {
 ```
 ### Example:
 ```typescript
-const result = await client.supportbotElite.query({ 
+const result = await client.supportAgent.query({ 
   message: 'What is the main color in this image?', 
   file: imageFile, // e.g. from an <input type="file"> or Node.js equivalent
   sessionId: 'my-session-id-123', // optional but recommended for multi-turn conversations 
@@ -120,7 +120,7 @@ console.log(result);
 The `query()` method throws an error when the underlying HTTP request fails or the server responds with an error status.
 ```typescript
 try { 
-  const response = await client.supportbotElite.query({ 
+  const response = await client.supportAgent.query({ 
     message: 'Help me with my issue.', 
     file: undefined, 
     sessionId: undefined, 
@@ -128,14 +128,14 @@ try {
 
   console.log('Response:', response); 
 } catch (err) { 
-  console.error('Supportbot Elite query failed:', err); 
+  console.error('Support Agent query failed:', err); 
 }
 ```
 ---
 ## TypeScript Support
 This SDK is written in TypeScript and ships with type declarations:
 
-* Strong typing for `BizAgentHub`, `SupportbotElite`, and `SupportbotEliteQuery`
+* Strong typing for `BizAgentHub`, `SupportAgent`, and `SupportAgentQuery`
 
 * Works out of the box with TypeScript projects
 

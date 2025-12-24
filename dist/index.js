@@ -1,12 +1,12 @@
-import { SupportbotElite } from "./supportbot-elite.js";
+import { SupportAgent } from "./support-agent.js";
 import { ScrapAgent } from "./scrap-agent.js";
 import { AnalyticsAgent } from "./analytics-agent.js";
-import { BrowserTestingAgent } from "./browser-testing-agent.js";
+import { UITestingAgent } from "./ui-testing-agent.js";
 export class BizAgentHub {
     constructor(userId, apiKey) {
-        this.supportbotElite = new SupportbotElite(userId, apiKey);
+        this.supportAgent = new SupportAgent(userId, apiKey);
         this.scrapAgent = new ScrapAgent(userId, apiKey);
         this.analyticsAgent = new AnalyticsAgent(userId, apiKey);
-        this.browserTestingAgent = new BrowserTestingAgent(userId, apiKey);
+        this.uiTestingAgent = new UITestingAgent(userId, apiKey);
     }
 }
